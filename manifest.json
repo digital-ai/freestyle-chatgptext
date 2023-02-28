@@ -1,5 +1,10 @@
 {
   "manifest_version": 3,
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs"
+   ],
   "background": {
     "service_worker": "background.js"
   },
@@ -8,10 +13,6 @@
   "description": "A simple Hello World Chrome extension",
   "action": {
     "default_popup": "popup.html",
-	"default_title": "Hello Extension",
-  "permissions": [
-    "tabs",
-    "activeTab"
-  ]
+	"default_title": "Hello Extension"
   }
 }

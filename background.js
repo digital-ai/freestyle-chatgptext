@@ -1,16 +1,26 @@
 
-//determine if current tab is agility story TODO
 
 
+function getAlert() { alert("Oh snap"); }
 
-//grab current DOM
-async function getCurrentTabDom() {
+
+async function GetCurrentTabID() {
+
+    //set options for current/active tab, and retrieve it via extension API
     let queryOptions = { active: true, lastFocusedWindow: true };
 
     let [tab] = await chrome.tabs.query(queryOptions);
 
-    console.log(tab);
+    chrome.scripting
+    .executeScript({
+      target : {tabId : tab.id},
+      func : getAlert,
+    })
+    .then(() => console.log("injected a function"));
+
 }
 
-getCurrentTabDom();
-//Store title and description to export later
+
+GetCurrentTabID();
+
+
