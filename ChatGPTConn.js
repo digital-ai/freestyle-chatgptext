@@ -14,7 +14,7 @@ function getRequestBody(data){
 function getRequestHeader() {
      return {
         'Content-Type':'application/json',
-        'Authorization':'Bearer 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', //this is very very bad, never ever do this
+        'Authorization':'', //this is very very bad, never ever do this
         'OpenAI-Organization':'org-2ev8gvyzVZ13Z7XzTs76lGvQ'
     };
 }
