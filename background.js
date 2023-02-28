@@ -2,9 +2,17 @@
 //Pack description and Title into object and return it.
 function ScrapeCurrentDOM() {
     
-    
+    //document.querySelector('[id^="Story.Description-"]');
 
-    return {Title: "DemoTitle", Description: "Demo Description"};
+    let description = document.querySelector('[id*=".Description-"]');
+    let title = document.querySelector('[id="asset-title-mount"] textarea').textContent;
+
+    if (description === null) {return undefined}
+   
+    let descriptionText = description.innerText;
+
+
+    return JSON.stringify({Title: title, Description: descriptionText });
 }
 
 
@@ -24,8 +32,7 @@ async function GetAccessToCurrentDOM() {
     .executeScript({
       target : {tabId : tab.id},
       func : ScrapeCurrentDOM,
-    })
-    .then((data) => console.log(data[0].result))
+    }).then((data) => console.log(data[0].result))
 
 }
 
