@@ -1,8 +1,10 @@
-//Part 1 get dom access of current tab
+
+//Pack description and Title into object and return it.
 function ScrapeCurrentDOM() {
+    
+    
 
-
-
+    return {Title: "DemoTitle", Description: "Demo Description"};
 }
 
 
@@ -15,7 +17,7 @@ async function GetAccessToCurrentDOM() {
 
     if(!tab) { return undefined; }
     if (tab.url?.startsWith("chrome://")) {return undefined;}
-    //Part 2 validate if page is agility prior to scraping?
+    //Part 2 validate if page is agility prior to scraping with tabs.URL?
     //TODO 
 
     chrome.scripting
@@ -23,13 +25,13 @@ async function GetAccessToCurrentDOM() {
       target : {tabId : tab.id},
       func : ScrapeCurrentDOM,
     })
-    .then(() => console.log("injected a function"));
+    .then((data) => console.log(data[0].result))
 
 }
 
 GetAccessToCurrentDOM();
 
-//part 3 prep Description and Title for sending to API
+
 
 
 
