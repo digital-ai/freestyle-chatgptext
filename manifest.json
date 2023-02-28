@@ -1,5 +1,8 @@
 {
   "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
   "name": "Hello World Extension",
   "version": "1.0",
   "description": "A simple Hello World Chrome extension",
