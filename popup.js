@@ -7,7 +7,7 @@ function setExplanationText() {
     // because we do NOT want to share information between tabs
     let storyData = sessionStorage.getItem("StoryData");
 
-    if (storyData)
+    if (storyData && storyData != "null")
     {
         let elem = document.getElementById(explanationId);
 

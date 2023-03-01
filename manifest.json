@@ -10,6 +10,9 @@
     "default_popup": "popup.html",
 	"default_title": "Tag Generator"
   },
+  "icons": {
+    "16":"helper.png"
+  },
   "permissions": [
     "activeTab",
     "scripting",
