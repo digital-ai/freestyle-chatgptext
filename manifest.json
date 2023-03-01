@@ -1,14 +1,18 @@
 {
   "manifest_version": 3,
-  "name": "Hello World Extension",
+  "name": "Tag Generator",
+  "background": {
+    "service_worker": "background.js"
+  },
   "version": "1.0",
-  "description": "A simple Hello World Chrome extension",
+  "description": "A system that will analyze an Agility workitem and provide suggestions for tags.",
   "action": {
     "default_popup": "popup.html",
-	"default_title": "Hello Extension",
+	"default_title": "Tag Generator"
+  },
   "permissions": [
-    "tabs",
-    "activeTab"
+    "activeTab",
+    "scripting",
+    "tabs"
   ]
-  }
 }

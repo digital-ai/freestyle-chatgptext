@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello World Extension</title>
+    <title>Agility Tag Suggester</title>
     <style>
       body {
         font-family: Arial, sans-serif;
-        font-size: 16px;
-        text-align: center;
       }
     </style>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <p>This is a simple Chrome extension.</p>
+    <h1>Agility Tag Suggester</h1>
+    <p id="agility-tag-ext-explanation" style=""></p>
+    <button id="agility-tag-ext-analyze" type="button">Suggest Tags</button>
+    <ul id="agility-tag-ext-tags">
+    </ul>
   </body>
+  <script src="background.js"></script>
+  <script src="ChatGPTConn.js"></script>
+  <script src="./popup.js" type="module"></script>
 </html>
