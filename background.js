@@ -1,10 +1,9 @@
 
 //Pack description and Title into object and return it.
 function ScrapeCurrentDOM() {
-    
-    //document.querySelector('[id^="Story.Description-"]');
 
     let description = document.querySelector('[id*=".Description-"]');
+
     let title = document.querySelector('[id="asset-title-mount"] textarea').textContent;
 
     if (description === null) {return undefined}
@@ -12,7 +11,7 @@ function ScrapeCurrentDOM() {
     let descriptionText = description.innerText;
 
 
-    return JSON.stringify({Title: title, Description: descriptionText });
+    return {Title: title, Description: descriptionText};
 }
 
 
@@ -24,15 +23,14 @@ async function GetAccessToCurrentDOM() {
     let [tab] = await chrome.tabs.query(queryOptions);
 
     if(!tab) { return undefined; }
+
     if (tab.url?.startsWith("chrome://")) {return undefined;}
-    //Part 2 validate if page is agility prior to scraping with tabs.URL?
-    //TODO 
 
     chrome.scripting
     .executeScript({
       target : {tabId : tab.id},
       func : ScrapeCurrentDOM,
-    }).then((data) => console.log(data[0].result))
+    }).then((data) => sessionStorage.setItem("StoryData", JSON.stringify(data[0].result)));
 
 }
 
