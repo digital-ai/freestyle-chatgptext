@@ -1,6 +1,6 @@
 //create request object from screen data
 function getRequestBody(data){
-    let prompt = 'Generate a list of five searchable tags for a agile workflow story or defect based on the following title and description. Return results as a json formatted array.';
+    let prompt = 'Generate a list of five searchable tags for a agile workflow story or defect based on the following title and description. Return results as a json formatted array of strings.';
         prompt += '\nTitle = ' + data.Title;
         prompt += '\nDescription = ' + data.Description;
     return {
@@ -21,13 +21,19 @@ function getRequestHeader() {
 
 //Get Completion
 async function getSuggestions(story) {
-    return fetch('https://api.openai.com/v1/completions', {
+    let request = await fetch('https://api.openai.com/v1/completions', {
         method: 'POST',
         headers: getRequestHeader(),
         body: JSON.stringify(getRequestBody(story))
-    })
-        .then(response => response.json())
-        .then(response => console.log(JSON.stringify(response)));
+    });
+    let response = await request.json();
+    try {
+        let returnValue = JSON.parse(response["choices"][0]["text"]);
+        return returnValue;
+    }catch{
+        let tags = response["choices"][0]["text"].replace(/[\[\]]/g,"").trim().split(",");
+        return tags;
+    }
 }
 
 async function testButtonOnClick() {
