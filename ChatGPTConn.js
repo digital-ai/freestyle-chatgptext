@@ -5,8 +5,6 @@ function getRequestBody(data){
         prompt += '\nTitle = ' + jsonData.Title;
         prompt += '\nDescription = ' + jsonData.Description;
 
-    console.log(prompt);
-
     return {
         'model':'text-davinci-003',
         'prompt':prompt,
@@ -18,7 +16,7 @@ function getRequestBody(data){
 function getRequestHeader() {
      return {
         'Content-Type':'application/json',
-        'Authorization':'[Bearer AuthTokenHere]', //this is very very bad, never ever do this
+        'Authorization':'[Bearer AccessTokenHere]', //this is very very bad, never ever do this
         'OpenAI-Organization':'org-2ev8gvyzVZ13Z7XzTs76lGvQ'
     };
 }

@@ -7,8 +7,6 @@ function setExplanationText() {
     // because we do NOT want to share information between tabs
     let storyData = sessionStorage.getItem("StoryData");
 
-    console.log(storyData);
-
     if (storyData)
     {
         let elem = document.getElementById(explanationId);
@@ -47,7 +45,6 @@ function handleTagGeneration() {
 // TODO: change to actual data
 function onTagGenerationComplete(results)
 {
-    console.log(results);
     let tagList = document.getElementById(tagListId);
     results.forEach(result => {
         let tag = document.createElement("li")
