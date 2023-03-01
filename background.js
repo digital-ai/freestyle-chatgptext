@@ -26,12 +26,6 @@ async function GetAccessToCurrentDOM() {
 
     if (tab.url?.startsWith("chrome://")) {return undefined;}
 
-    let isValidAgility = false;
-
-    if (tab.url?.startsWith("chrome://")) {return undefined;}
-
-
-    console.log(isValidAgility);
     chrome.scripting
     .executeScript({
       target : {tabId : tab.id},
