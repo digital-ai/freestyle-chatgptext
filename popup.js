@@ -5,7 +5,7 @@ const tagfetchButtonId = "agility-tag-ext-analyze"
 function setExplanationText() {
     // Session storage has been chosen instead of local storage
     // because we do NOT want to share information between tabs
-    let storyData = undefined //sessionStorage.getItem("story");
+    let storyData = sessionStorage.getItem("StoryData");
 
     console.log(storyData);
 
