@@ -5,6 +5,10 @@
   "description": "A simple Hello World Chrome extension",
   "action": {
     "default_popup": "popup.html",
-	"default_title": "Hello Extension"
+	"default_title": "Hello Extension",
+  "permissions": [
+    "tabs",
+    "activeTab"
+  ]
   }
 }
